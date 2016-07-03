@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>run</title>
+    <script type="text/javascript" src="js/jquery-1.7.2.min.js"></script>
+    <style type="text/css">
+        *{margin: 0;padding: 0;}
+        .box{width:180px;height:300px;margin: 100px auto;background: url("img/charector.png") no-repeat 0 0;}
+        ul{width:250px;height:30px;list-style: none;margin: 10px auto;}
+        ul li{height:30px;padding: 10px;margin-left: 10px;text-align: center;line-height: 30px;float: left;background: #ccc;border: 1px solid #cccccc;border-radius: 10px;box-shadow: 3px 2px 3px #666;cursor: pointer;}
+        @keyframes run1 {
+            0% {background-position:0 0;}
+            100% {background-position:-1080px 0;}
+        }
+        .box{animation:run1 5s infinite steps(6,start);}
+    </style>
+</head>
+<body>
+    <div class="box"></div>
+    <ul id="btns">
+        <li>正常速度</li>
+        <li>快速</li>
+        <li>慢速</li>
+    </ul>
+</body>
+<script>
+   $('li').click(function(){
+       if($(this).html()=='正常速度'){
+        $('.box').css('animation-duration','1s');
+       }else if($(this).html()=='快速'){
+           $('.box').css('animation-duration','0.5s');
+       }else{
+           $('.box').css('animation-duration','3s');
+       }
+   })
+</script>
+</html>

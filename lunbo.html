@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <script type="text/javascript" src="js/jquery-1.7.2.min.js"></script>
+    <style type="text/css">
+        *{margin: 0;padding: 0;}
+        ol, ul{list-style: none;}
+        #box{width:560px;height:300px;margin: 100px auto;border: 1px solid #ccc;position: relative;overflow: hidden;}
+        #box ul{width:560px;height: 300px;position: absolute;left: 0;top: 0;}
+        #box ul li{width:560px;height:300px;position: absolute;left:0;top: 0;}
+        #box .sm_pic{z-index: 10;}
+        .sm_pic li{overflow: hidden;}
+        #box ul li img{width:560px;height:300px;}
+        #box .big_pic li img{width: 5600px;height:300px;}
+        #box #btn{width:120px ;height:30px;position: absolute;right: 15px;bottom: 20px;z-index: 20;}
+        #btn li{height:15px;width:15px;padding: 5px;text-align:center;line-height:10px;background: #fff;opacity: 0.3;border-radius: 10px;margin-left: 5px;float: left;cursor: pointer;}
+
+        @keyframes pic {
+            0%{left: 0;}
+            100%{left: -5040px;}
+        }
+        @keyframes sPic {
+            0%{width:0;}
+            100%{width: 560px;}
+        }
+        .big_pic li{animation: pic 0.6s  linear both;}
+        .sm_pic li{animation: sPic 0.6s  linear both;}
+        #btn li:nth-child(4){background: red;}
+        .btns{display:inline-block;width:30px;height:60px;background: #fff;opacity: 0.3;position: absolute;z-index: 30;font-size: 60px;text-align: center;line-height: 60px;cursor: pointer;display: none;}
+        #btnL{left:0;top:110px; }
+        #btnR{right: 0;top:110px;}
+    </style>
+</head>
+<body>
+<div id="box">
+    <ul class="sm_pic">
+        <li><img src="img/8.jpg"/></li>
+        <li><img src="img/9.jpg"/></li>
+        <li><img src="img/10.jpg"/></li>
+        <li><img src="img/11.jpg"/></li>
+    </ul>
+    <ul class="big_pic">
+        <li><img src="img/8.jpg"/></li>
+        <li><img src="img/9.jpg"/></li>
+        <li><img src="img/10.jpg"/></li>
+        <li><img src="img/11.jpg"/></li>
+    </ul>
+    <ol id="btn">
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+        <li>4</li>
+    </ol>
+    <span class="btns" id="btnR">></span>
+    <span class="btns" id="btnL"><</span>
+</div>
+
+</body>
+<script>
+    $(function(){
+        var timer = null;
+        var i = 3;
+//        ================底部按钮点击事件=============
+        $('.sm_pic').children('li').eq(3).show().siblings('li').hide();
+        $('.big_pic').children('li').eq(3).show().siblings('li').hide();
+        $('#btn').children('li').click(function(){
+
+            $('.sm_pic').children('li').eq($(this).index()).show().siblings('li').hide();
+            $('.big_pic').children('li').eq($(this).index()).show().siblings('li').hide();
+            $(this).css('background','red').siblings('li').css('background','#fff')
+            i = $(this).index();
+        })
+//        =============自动轮播================
+        timer = setInterval(play,1500);
+
+
+//=====================左右按钮点击事件==================
+    $('#box').hover(function(){
+        clearInterval(timer);
+        $('.btns').show();
+    },function(){
+       timer = setInterval(play,1500);
+        $('.btns').hide();
+    })
+
+        $('#btnR').click(function(){
+            i++;
+            if(i<=3){
+
+                $('.sm_pic').children('li').eq(i).show().siblings('li').hide();
+                $('.big_pic').children('li').eq(i).show().siblings('li').hide();
+                $('#btn>li').eq(i).css('background','red').siblings('li').css('background','#fff');
+                console.log(i);
+
+
+            }else{
+                i = 0;
+                $('.sm_pic').children('li').eq(0).show().siblings('li').hide();
+                $('.big_pic').children('li').eq(0).show().siblings('li').hide();
+                $('#btn>li').eq(0).css('background','red').siblings('li').css('background','#fff');
+                console.log(i);
+            }
+
+        })
+        $('#btnL').click(function(){
+            i--;
+            if(i<0){
+                i=3;
+                $('.sm_pic').children('li').eq(3).show().siblings('li').hide();
+                $('.big_pic').children('li').eq(3).show().siblings('li').hide();
+                $('#btn>li').eq(3).css('background','red').siblings('li').css('background','#fff');
+
+
+            }else{
+                $('.sm_pic').children('li').eq(i).show().siblings('li').hide();
+                $('.big_pic').children('li').eq(i).show().siblings('li').hide();
+                $('#btn>li').eq(i).css('background','red').siblings('li').css('background','#fff');
+                console.log(i);
+
+            }
+
+        })
+
+
+
+      function play(){
+            if(i<=3){
+                $('.sm_pic').children('li').eq(i).show().siblings('li').hide();
+                $('.big_pic').children('li').eq(i).show().siblings('li').hide();
+                $('#btn>li').eq(i).css('background','red').siblings('li').css('background','#fff')
+                i++;
+            }else{
+                i=0;
+            }
+      }
+
+    })
+</script>
+</html>

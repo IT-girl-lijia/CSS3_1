@@ -1,0 +1,161 @@
+*{
+  margin: 0;
+  padding: 0;
+}
+body,html{
+  height:100%;
+}
+#box{
+  width:100%;
+  height:100%;
+  figure{
+    width:33.33%;
+    height:360px;
+    float: left;
+    overflow: hidden;
+    position: relative;
+    img{
+      height: 100%;
+      position: absolute;
+      left: 0;
+      top: 0;
+      transform: translate(0,0);
+      transition: all 0.5s linear;
+      &:hover{
+        opacity: 0.6;
+        transform: translate(-20px,0);
+      }
+    }
+    .word1{
+      font-size: 25px;
+      color: #fff;
+      position: absolute;
+      left: 30px;
+      top:30px;
+      transform: translate(0,0);
+      transition: all 0.5s linear;
+    }
+    .pic2_word{
+      font-size: 20px;
+      line-height: 25px;
+      color: #fff;
+      position: absolute;
+      left: 40px;
+      transform: translate(-200px,0);
+      background: rgba(255,255,255,0.3);
+
+    }
+    .pic3_word2{
+      width: 100%;
+      height: 50px;
+      background: rgba(0,0,0,0.3);
+      font-size: 20px;
+      color: #fff;
+      text-align: center;
+      line-height: 50px;
+      position: absolute;
+      left: 0;
+      bottom: -50px;
+      transition: all 0.5s linear;
+    }
+    .pic2_word2{
+      bottom:90px;
+      transition: all 0.4s 0.2s linear;
+    }
+    .pic2_word3{
+      bottom:60px;
+      transition: all 0.4s 0.4s linear;
+    }
+    .pic2_word4{
+      bottom:30px;
+      transition: all 0.4s 0.6s linear;
+    }
+    .box{
+      width:600px;
+      height:300px;
+      background: #fff;
+      position: absolute;
+      left: 0;
+      bottom: -300px;
+      transition: all 0.6s linear;
+      .box_word{
+        font-size: 30px;
+        position: absolute;
+        left: 300px;
+        top:10px;
+      }
+    }
+    .box2{
+      width:250px;
+      height:250px;
+      border: 3px solid red;
+      position: absolute;
+      left: 50px;
+      top:-260px;
+      transition: all 0.4s;
+      transform: rotate(0deg);
+
+    }
+    .pic6_word6{
+      font-size: 20px;
+      color: #fff;
+      position: absolute;
+      left: 30px;
+      top:80px;
+      transition: all 0.4s linear;
+      transform: Skew(495deg,-45deg);
+    }
+    .pic7_word{
+      width:300px;
+      height:300px;
+      border: 2px solid #fff;
+      line-height: 200px;
+      text-align: center;
+      font-size: 20px;
+      color:#fff;
+      position: absolute;
+      left: 100px;
+      top:150px;
+    }
+    .pic1_word1{
+      font-size: 20px;
+      color: #fff;
+      position: absolute;
+      left:30px;
+      bottom: -30px;
+      transition: all 0.3s;
+    }
+    &:hover{
+      .pic1_word1{
+        bottom: 30px;
+      }
+      .word1{
+        transform: translate(15px,0);
+      }
+      .pic2_word2{
+        transform: translate(35px,0);
+      }
+      .pic2_word3{
+        transform: translate(35px,0);
+      }
+      .pic2_word4{
+        transform: translate(35px,0);
+      }
+      .pic3_word2{
+        bottom: 0px;
+      }
+      .box{
+        transform-origin: (0 0);
+        transform:rotate(-15deg);
+      }
+      .box2{
+        transform-origin:-30px bottom;
+       transform: rotate(450deg);
+      }
+      .pic6_word6{
+        transform: Skew(0deg,0deg);
+      }
+
+    }
+  }
+}
